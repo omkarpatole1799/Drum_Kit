@@ -6,8 +6,8 @@ for(var i = 0; i<document.querySelectorAll(".drum").length; i++) {
     // for mouse click
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         
-       var innerHTML = this.innerHTML;
-       playDrumBeats(innerHTML);
+       var buttonInnerHTML = this.innerHTML;
+       playDrumBeats(buttonInnerHTML);
         
     });
 }
@@ -18,9 +18,9 @@ document.addEventListener("keypress", function(omkar) {
    
 });
 
-function playDrumBeats(key) {
+function playDrumBeats(inputFromKeyboardOrMouse) {
 
-    switch (key) {
+    switch (inputFromKeyboardOrMouse) {
         case "w":
             var crashSound = new Audio("sounds/crash.mp3");
             crashSound.play();

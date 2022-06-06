@@ -7,17 +7,26 @@ for(var i = 0; i<document.querySelectorAll(".drum").length; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
         
        var buttonInnerHTML = this.innerHTML;
+    // taking mouse input and passing it to playDrumBeats   
        playDrumBeats(buttonInnerHTML);
-        
+
+    //    taking mouse input for button animation
+       buttonAnimation(buttonInnerHTML);
     });
 }
 
 // for keyboard button press
-document.addEventListener("keypress", function(omkar) {
-    playDrumBeats(omkar.key);
+document.addEventListener("keypress", function(event) {
+    // taking keyboard input and passing it to playDrumBeats
+    playDrumBeats(event.key);
+
+    // taking keyboard input for animation of button pressed
+    buttonAnimation(event.key);
    
 });
 
+
+// this function takes the input from keyborad or mouse and play the beats accordingly
 function playDrumBeats(inputFromKeyboardOrMouse) {
 
     switch (inputFromKeyboardOrMouse) {
@@ -59,4 +68,22 @@ function playDrumBeats(inputFromKeyboardOrMouse) {
              console.log(innerHTML);
              break;
      }
+}
+
+// this function animates the button when key is pressed
+
+function buttonAnimation(currentKey) {
+
+    // this selects the different class when the key is pressed accordingly
+    var pressedButton = document.querySelector("." +currentKey);
+
+    // this add the class pressed when the key is pressed
+    pressedButton.classList.add("pressed");
+
+    // this function removes the class pressed after time interval
+    setTimeout(function() {
+        pressedButton.classList.remove("pressed");
+
+    },100);
+
 }

@@ -48,6 +48,7 @@ for(var i = 0; i<document.querySelectorAll(".drum").length; i++) {
         
 
         if(innerHTML === "w"){
+            this.style.color = "white";
             var crash = new Audio("sounds/crash.mp3");
             crash.play();
         }
